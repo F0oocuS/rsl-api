@@ -56,6 +56,8 @@ class Hero extends Sequelize.Model {
 		this.belongsTo(models.HeroType, { foreignKey: 'heroTypeId' });
 		this.belongsTo(models.Faction, { foreignKey: 'factionId' });
 		this.belongsTo(models.Rarity, { foreignKey: 'rarityId' });
+
+		this.hasMany(models.UserHero, { foreignKey: 'heroId' });
 	}
 
 	static async cr(data) {
