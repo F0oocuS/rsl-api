@@ -1,14 +1,21 @@
 {
-  "name": "rsl-api",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "nodemon": "^2.0.1"
-  }
+	"name": "rsl-api",
+	"version": "1.0.0",
+	"description": "",
+	"main": "app.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "nodemon app.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"nodemon": "^2.0.1"
+	},
+	"dependencies": {
+		"express": "^4.17.1",
+		"mysql2": "^2.0.1",
+		"sequelize": "^5.21.2",
+		"xlsx": "^0.15.3"
+	}
 }
