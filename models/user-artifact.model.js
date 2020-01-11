@@ -13,7 +13,7 @@ class UserArtifact extends Model {
 				allowNull: false,
 				type: DataTypes.INTEGER
 			},
-		}, { tableName: 'user-artifacts', sequelize, });
+		}, { tableName: 'user-artifacts', sequelize });
 	}
 
 	static associate(models) {

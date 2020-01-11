@@ -1,7 +1,9 @@
 const Sequelize = require('sequelize');
 
 const HeroModel = require('../models/hero.model');
+const HeroStatModel = require('../models/hero-stat.model');
 const HeroTypeModel = require('../models/hero-type.model');
+
 const RarityModel = require('../models/rarity.model');
 const FactionModel = require('../models/faction.model');
 
@@ -11,6 +13,7 @@ const UserArtifactModel = require('../models/user-artifact.model');
 const UserShardModel = require('../models/user-shard.model');
 
 const ArtifactModel = require('../models/artifact.model');
+const ArtifactStatModel = require('../models/artifact-stat.model');
 
 const StatModel = require('../models/stat.model');
 
@@ -27,10 +30,12 @@ const models = {
 	UserArtifact: UserArtifactModel.init(sequelize, Sequelize),
 	UserShard: UserShardModel.init(sequelize, Sequelize),
 	Hero: HeroModel.init(sequelize, Sequelize),
+	HeroStat: HeroStatModel.init(sequelize, Sequelize),
 	HeroType: HeroTypeModel.init(sequelize, Sequelize),
 	Rarity: RarityModel.init(sequelize, Sequelize),
 	Faction: FactionModel.init(sequelize, Sequelize),
 	Artifact: ArtifactModel.init(sequelize, Sequelize),
+	ArtifactStat: ArtifactStatModel.init(sequelize, Sequelize),
 	Stat: StatModel.init(sequelize, Sequelize),
 	Shard: ShardModel.init(sequelize, Sequelize)
 };

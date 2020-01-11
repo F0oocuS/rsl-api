@@ -8,11 +8,17 @@ class Shard extends Model {
 				autoIncrement: true,
 				allowNull: false,
 				type: DataTypes.INTEGER
+			},
+			name: {
+				allowNull: false,
+				type: DataTypes.STRING
 			}
 		}, { tableName: 'shards', sequelize })
 	}
 
 	static associate(models) {
+		this.belongsTo(models.Rarity, { foreignKey: 'rarityId' });
+
 		this.hasMany(models.UserShard, { foreignKey: 'shardId' });
 	}
 }

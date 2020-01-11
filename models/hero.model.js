@@ -14,40 +14,8 @@ class Hero extends Model {
 				type: DataTypes.STRING
 			},
 			image: {
-				allowNull: false,
+				allowNull: true,
 				type: DataTypes.STRING
-			},
-			health: {
-				allowNull: false,
-				type: DataTypes.INTEGER
-			},
-			attack: {
-				allowNull: false,
-				type: DataTypes.INTEGER
-			},
-			defence: {
-				allowNull: false,
-				type: DataTypes.INTEGER
-			},
-			speed: {
-				allowNull: false,
-				type: DataTypes.INTEGER
-			},
-			critRate: {
-				allowNull: false,
-				type: DataTypes.INTEGER
-			},
-			critDamage: {
-				allowNull: false,
-				type: DataTypes.INTEGER
-			},
-			accuracy: {
-				allowNull: false,
-				type: DataTypes.INTEGER
-			},
-			resist: {
-				allowNull: false,
-				type: DataTypes.INTEGER
 			}
 		}, { tableName: 'heroes', sequelize });
 	}
@@ -58,6 +26,7 @@ class Hero extends Model {
 		this.belongsTo(models.Rarity, { foreignKey: 'rarityId' });
 
 		this.hasMany(models.UserHero, { foreignKey: 'heroId' });
+		this.hasMany(models.HeroStat, { foreignKey: 'heroId' });
 	}
 }
 

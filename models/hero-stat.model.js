@@ -1,25 +1,25 @@
 const { Model } = require('sequelize');
 
-class ArtifactStat extends Model {
+class HeroStat extends Model {
 	static init(sequelize, DataTypes) {
 		return super.init({
 			id: {
 				primaryKey: true,
-				autoIncrement: true,
 				allowNull: false,
+				autoIncrement: true,
 				type: DataTypes.INTEGER
 			},
 			value: {
 				allowNull: false,
 				type: DataTypes.INTEGER
 			}
-		}, { tableName: 'artifact-stats', sequelize })
+		}, { tableName: 'hero-stats', sequelize });
 	}
 
 	static associate(models) {
-		this.belongsTo(models.Artifact, { foreignKey: 'artifactId' });
+		this.belongsTo(models.Hero, { foreignKey: 'heroId' });
 		this.belongsTo(models.Stat, { foreignKey: 'statId' });
 	}
 }
 
-module.exports = ArtifactStat;
+module.exports = HeroStat;

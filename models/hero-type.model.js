@@ -9,7 +9,7 @@ class HeroType extends Model {
 				autoIncrement: true,
 				type: DataTypes.INTEGER
 			},
-			type: {
+			name: {
 				allowNull: false,
 				type: DataTypes.STRING
 			}

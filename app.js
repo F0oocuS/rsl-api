@@ -4,6 +4,10 @@ const database = require('./util/database');
 
 const app = express();
 
+app.get('', (req, res, next) => {
+	res.json('Hello world');
+});
+
 database.sequelize
 	.sync()
 	.then(() => {

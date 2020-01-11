@@ -12,15 +12,14 @@ class Stat extends Model {
 			name: {
 				allowNull: false,
 				type: DataTypes.STRING
-			},
-			maxValue: {
-				allowNull: false,
-				type: DataTypes.INTEGER
 			}
 		}, { tableName: 'stats', sequelize });
 	}
 
-	static associate(models) {}
+	static associate(models) {
+		this.hasMany(models.HeroStat, { foreignKey: 'statId' });
+		this.hasMany(models.ArtifactStat, { foreignKey: 'statId' });
+	}
 }
 
 module.exports = Stat;

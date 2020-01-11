@@ -12,18 +12,15 @@ class Artifact extends Model {
 			name: {
 				allowNull: false,
 				type: DataTypes.STRING
-			},
-			type: {
-				allowNull: false,
-				type: DataTypes.INTEGER
 			}
 		}, { tableName: 'artifacts', sequelize});
 	}
 
 	static associate(models) {
 		this.hasMany(models.UserArtifact, { foreignKey: 'artifactId' });
+		this.hasMany(models.ArtifactStat, { foreignKey: 'artifactId' });
 
-		this.belongsTo(models.Stat)
+		// this.belongsTo(models.Stat)
 	}
 }
 
