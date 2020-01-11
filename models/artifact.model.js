@@ -1,6 +1,6 @@
 const { Model } = require('sequelize');
 
-class User extends Model {
+class Artifact extends Model {
 	static init(sequelize, DataTypes) {
 		return super.init({
 			id: {
@@ -9,21 +9,22 @@ class User extends Model {
 				autoIncrement: true,
 				type: DataTypes.INTEGER
 			},
-			email: {
+			name: {
 				allowNull: false,
 				type: DataTypes.STRING
 			},
-			password: {
+			type: {
 				allowNull: false,
-				type: DataTypes.STRING
-			},
-		}, { tableName: 'users', sequelize });
+				type: DataTypes.INTEGER
+			}
+		}, { tableName: 'artifacts', sequelize});
 	}
 
 	static associate(models) {
-		this.hasMany(models.UserHero, { foreignKey: 'userId' });
-		this.hasMany(models.UserArtifact, { foreignKey: 'userId' });
+		this.hasMany(models.UserArtifact, { foreignKey: 'artifactId' });
+
+		this.belongsTo(models.Stat)
 	}
 }
 
-module.exports = User;
+module.exports = Artifact;

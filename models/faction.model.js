@@ -1,6 +1,6 @@
-const Sequelize = require('sequelize');
+const { Model } = require('sequelize');
 
-class Faction extends Sequelize.Model {
+class Faction extends Model {
 	static init(sequelize, DataTypes) {
 		return super.init({
 			id: {
@@ -22,10 +22,6 @@ class Faction extends Sequelize.Model {
 
 	static associate(models) {
 		this.hasMany(models.Hero, { foreignKey: 'factionId' });
-	}
-
-	static async cr(data) {
-		return await Faction.create(data);
 	}
 }
 

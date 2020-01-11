@@ -1,6 +1,6 @@
 const { Model } = require('sequelize');
 
-class UserHero extends Model {
+class UserShard extends Model {
 	static init(sequelize, DataTypes) {
 		return super.init({
 			id: {
@@ -9,21 +9,17 @@ class UserHero extends Model {
 				allowNull: false,
 				type: DataTypes.INTEGER
 			},
-			level: {
-				allowNull: false,
-				type: DataTypes.INTEGER
-			},
-			rating: {
+			count: {
 				allowNull: false,
 				type: DataTypes.INTEGER
 			}
-		}, { tableName: 'user-heroes', sequelize });
+		}, { tableName: 'user-shards', sequelize });
 	}
 
 	static associate(models) {
 		this.belongsTo(models.User, { foreignKey: 'userId' });
-		this.belongsTo(models.Hero, { foreignKey: 'heroId' });
+		this.belongsTo(models.Shard, { foreignKey: 'shardId' });
 	}
 }
 
-module.exports = UserHero;
+module.exports = UserShard;

@@ -1,6 +1,6 @@
-const Sequelize = require('sequelize');
+const { Model } = require('sequelize');
 
-class Hero extends Sequelize.Model {
+class Hero extends Model {
 	static init(sequelize, DataTypes) {
 		return super.init({
 			id: {
@@ -58,14 +58,6 @@ class Hero extends Sequelize.Model {
 		this.belongsTo(models.Rarity, { foreignKey: 'rarityId' });
 
 		this.hasMany(models.UserHero, { foreignKey: 'heroId' });
-	}
-
-	static async cr(data) {
-		return await Hero.create(data);
-	}
-
-	static async get(param) {
-		return await Hero.findAll({ where: { name: param }})
 	}
 }
 

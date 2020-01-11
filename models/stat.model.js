@@ -1,6 +1,6 @@
 const { Model } = require('sequelize');
 
-class Rarity extends Model {
+class Stat extends Model {
 	static init(sequelize, DataTypes) {
 		return super.init({
 			id: {
@@ -9,16 +9,18 @@ class Rarity extends Model {
 				autoIncrement: true,
 				type: DataTypes.INTEGER
 			},
-			type: {
+			name: {
 				allowNull: false,
 				type: DataTypes.STRING
+			},
+			maxValue: {
+				allowNull: false,
+				type: DataTypes.INTEGER
 			}
-		}, { tableName: 'rarities', sequelize })
+		}, { tableName: 'stats', sequelize });
 	}
 
-	static associate(models) {
-		this.hasMany(models.Hero, { foreignKey: 'rarityId' });
-	}
+	static associate(models) {}
 }
 
-module.exports = Rarity;
+module.exports = Stat;

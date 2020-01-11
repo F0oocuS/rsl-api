@@ -1,29 +1,25 @@
 const { Model } = require('sequelize');
 
-class UserHero extends Model {
+class UserArtifact extends Model {
 	static init(sequelize, DataTypes) {
 		return super.init({
 			id: {
 				primaryKey: true,
+				allowNull: false,
 				autoIncrement: true,
-				allowNull: false,
-				type: DataTypes.INTEGER
-			},
-			level: {
-				allowNull: false,
 				type: DataTypes.INTEGER
 			},
 			rating: {
 				allowNull: false,
 				type: DataTypes.INTEGER
-			}
-		}, { tableName: 'user-heroes', sequelize });
+			},
+		}, { tableName: 'user-artifacts', sequelize, });
 	}
 
 	static associate(models) {
 		this.belongsTo(models.User, { foreignKey: 'userId' });
-		this.belongsTo(models.Hero, { foreignKey: 'heroId' });
+		this.belongsTo(models.Artifact, { foreignKey: 'artifactId' });
 	}
 }
 
-module.exports = UserHero;
+module.exports = UserArtifact;
