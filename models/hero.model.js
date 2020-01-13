@@ -16,6 +16,38 @@ class Hero extends Model {
 			image: {
 				allowNull: true,
 				type: DataTypes.STRING
+			},
+			health: {
+				allowNull: false,
+				type: DataTypes.STRING
+			},
+			attack: {
+				allowNull: false,
+				type: DataTypes.STRING
+			},
+			defence: {
+				allowNull: false,
+				type: DataTypes.STRING
+			},
+			speed: {
+				allowNull: false,
+				type: DataTypes.STRING
+			},
+			critRate: {
+				allowNull: false,
+				type: DataTypes.STRING
+			},
+			critDamage: {
+				allowNull: false,
+				type: DataTypes.STRING
+			},
+			resist: {
+				allowNull: false,
+				type: DataTypes.STRING
+			},
+			accuracy: {
+				allowNull: false,
+				type: DataTypes.STRING
 			}
 		}, { tableName: 'heroes', sequelize });
 	}

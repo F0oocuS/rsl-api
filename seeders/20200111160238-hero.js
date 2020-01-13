@@ -25,6 +25,14 @@ module.exports = {
 		for (let i = 0; i < xlData.length; i++) {
 			const hero = {
 				name: xlData[i].title,
+				health: xlData[i].health,
+				defence: xlData[i].defense,
+				speed: xlData[i].speed,
+				attack: xlData[i].attack,
+				critRate: xlData[i].crit_rate,
+				critDamage: xlData[i].crit_damage,
+				resist: xlData[i].resist,
+				accuracy: xlData[i].accuracy,
 				createdAt: new Date(),
 				updatedAt: new Date()
 			};
