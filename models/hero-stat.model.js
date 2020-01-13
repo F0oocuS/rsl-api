@@ -10,7 +10,7 @@ class HeroStat extends Model {
 				type: DataTypes.INTEGER
 			},
 			value: {
-				allowNull: false,
+				allowNull: true,
 				type: DataTypes.INTEGER
 			}
 		}, { tableName: 'hero-stats', sequelize });

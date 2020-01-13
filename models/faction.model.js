@@ -14,7 +14,7 @@ class Faction extends Model {
 				type: DataTypes.STRING
 			},
 			image: {
-				allowNull: false,
+				allowNull: true,
 				type: DataTypes.STRING
 			}
 		}, { tableName: 'factions', sequelize });
