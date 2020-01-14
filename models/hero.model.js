@@ -1,5 +1,7 @@
 const { Model } = require('sequelize');
 
+const Faction = require('./faction.model');
+
 class Hero extends Model {
 	static init(sequelize, DataTypes) {
 		return super.init({
@@ -59,6 +61,33 @@ class Hero extends Model {
 
 		this.hasMany(models.UserHero, { foreignKey: 'heroId' });
 		this.hasMany(models.HeroStat, { foreignKey: 'heroId' });
+	}
+
+	static async getAllHeroes() {
+		return await Hero.findAll({ where: { factionId: 1 } });
+	}
+
+	static async getAllHeroesFromFaction() {
+		const factions = await Faction.getAllFactions();
+		const arr = [];
+
+		for (let i = 0; i < factions.length; i++) {
+			const obj = {
+				id: factions[i].id,
+				name: factions[i].name,
+				heroes: []
+			};
+
+			const hero = await this.getAllHeroes({ where: { factionId: factions[i].id } });
+
+			for (let j = 0; j < hero.length; j++) {
+				obj.heroes.push(hero[j]);
+			}
+
+			arr.push(obj)
+		}
+
+		return arr;
 	}
 }
 

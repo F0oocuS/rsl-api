@@ -23,6 +23,10 @@ class Faction extends Model {
 	static associate(models) {
 		this.hasMany(models.Hero, { foreignKey: 'factionId' });
 	}
+
+	static async getAllFactions() {
+		return this.findAll();
+	}
 }
 
 module.exports = Faction;
